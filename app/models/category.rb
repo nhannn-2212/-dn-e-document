@@ -1,11 +1,15 @@
 class Category < ApplicationRecord
+  # attr macro
   belongs_to :user
-  belongs_to :category, optional: true
+  belongs_to :category, optional: true, class_name: Category.name, foreign_key: :parent_id
   has_many :categories, class_name: Category.name, foreign_key: :parent_id
+  has_many :documents
+  delegate :fullname, to: :user, prefix: true, allow_nil: true
 
   validates :name, presence: true, length: {
     minimum: Settings.category_min_length,
-    maximum: Settings.category_max_length
+    maximum: Settings.category_max_length,
+    uniqueness: true
   }
 
   scope :sort_by_name, ->{order :name}

@@ -3,7 +3,7 @@ name_max_length: 50
 pass_min_length: 6
 per_page: 10
 time_zone: "Hanoi"
-doc_min_length: 6
+doc_min_length: 3
 doc_max_length: 255
 category_min_length: 3
 category_max_length: 50
@@ -19,3 +19,4 @@ role_member: "member"
 status_ban: "ban"
 false_string: "false"
 times_upload_invalid: 5
+upload_times_in_month: 10

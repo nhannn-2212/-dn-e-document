@@ -1,0 +1,14 @@
+$('#create_category').on('click',function(){
+  if ($('#category_form').is(':visible'))
+  {
+    $('#category_form').hide();
+    $('#category_select').show();
+    $('#create_category').text(I18n.t("create_category"));
+  }
+  else
+  {
+    $('#category_form').show();
+    $('#category_select').hide();
+    $('#create_category').text(I18n.t("cancel"));
+  }
+})

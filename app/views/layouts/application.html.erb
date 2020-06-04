@@ -7,6 +7,9 @@
 
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
+    <script>
+      I18n.translations = <%== I18n::JS.filtered_translations.to_json %>;
+    </script>
   </head>
   <body>
     <%= render "layouts/header" %>

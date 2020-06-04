@@ -1,0 +1,25 @@
+<% t "list_categories_html" %>
+<% if @categories.any? %>
+  <table class="table">
+    <tr>
+      <th><%= t "category.name" %></th>
+      <th><%= t "category.created_by" %></th>
+      <th><%= t "category.parent_name" %></th>
+    </tr>
+    <% @categories.each do |f| %>
+      <tr>
+        <td><%= f.name %></td>
+        <td><%= f.user_fullname %></td>
+        <td>
+          <% if f.category %>
+            <%= f.category.name %>
+          <% end %>
+        </td>
+        <td><%= link_to t("edit"), [:edit, :admin, f] %></td>
+        <td><%= link_to t("delete"), [:admin, f], data: {confirm: t("cfm")} %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= will_paginate @categories %>
+<% end %>

@@ -24,9 +24,11 @@
             <li><%= link_to t("login"), login_path %></li>
           <% end %>
         </ul>
-        <%= form_tag("/search", method: :get, remote: true, class: "form-inline my-2 my-lg-0") do %>
-          <%= text_field_tag :search, params[:search], class: "form-control mr-sm-2" %>
-          <%= submit_tag t("search"), class: "btn btn-outline-success my-2 my-sm-0" %>
+        <%= form_tag("/search", method: :get, remote: true, class: "form-inline") do %>
+          <%= text_field_tag :search, params[:search], class: "form-control" %>
+          <%= button_tag( :class => "button_green") do %>
+            <i class="fa fa-search" aria-hidden="true"></i>
+          <% end %>
         <% end %>
       </div>
     </nav>

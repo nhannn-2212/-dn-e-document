@@ -4,9 +4,10 @@ class Document < ApplicationRecord
 
   # attr macro
   belongs_to :user
-  belongs_to :category, optional: true
+  belongs_to :category
   has_one_attached :doc
   has_many :comments
+  accepts_nested_attributes_for :category, reject_if: :reject_category
 
   # validates
   validates :name, presence: true, length: {
@@ -30,4 +31,8 @@ class Document < ApplicationRecord
     left_outer_joins(:category).where("documents.name LIKE ?  OR categories.name LIKE ?", "%#{search}%", "%#{search}%") if search.present?
   }
   scope :find_in_month, ->{where "created_at >= ? AND created_at <= ?", DateTime.now.beginning_of_month, DateTime.now.end_of_month}
+
+  def reject_category attr
+    attr["name"].blank?
+  end
 end
