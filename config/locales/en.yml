@@ -6,6 +6,8 @@ en:
   login: "Login"
   login_html: <h3>Login</h3>
   upload: "Upload"
+  view: "View"
+  download: "Download"
   users:
     email: "Email"
     pwd: "Password"
