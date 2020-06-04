@@ -1,0 +1,10 @@
+<li id="document-<%= document.id %>">
+  <span class="name"><%= document.name %></span>
+  <% if document.doc.content_type == Settings.pdf_type %>
+    <span class="view"><%= link_to t("view"), document %>
+  <% end %>
+  <span class="timestamp">
+    <%= link_to t("document.delete"), "#", method: :delete,
+      data: {confirm: t("document.cfm")} if current_user?(document.user) %>
+  </span>
+</li>

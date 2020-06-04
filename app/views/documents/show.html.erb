@@ -1,0 +1,6 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h2 class="center"><%= @document.name %></h2>
+    <embed class="col-md-12" src="<%= polymorphic_url(@document.doc)%>" height="800" type="<%= Settings.pdf_type %>">
+  </div>
+</div>
