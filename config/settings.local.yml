@@ -11,3 +11,5 @@ doc_type_html: "application/pdf, application/msword, application/vnd.ms-excel, a
 pdf_type: application/pdf
 coin_my_file: 10
 coin: 15
+coin_upload: 10
+times_download_free: 3

@@ -28,4 +28,5 @@ class Document < ApplicationRecord
   scope :search, ->(search){
     left_outer_joins(:category).where("documents.name LIKE ?  OR categories.name LIKE ?", "%#{search}%", "%#{search}%") if search.present?
   }
+  scope :find_in_month, ->{where "created_at >= ? AND created_at <= ?", DateTime.now.beginning_of_month, DateTime.now.end_of_month}
 end
