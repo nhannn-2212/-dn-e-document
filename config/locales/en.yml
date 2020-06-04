@@ -18,6 +18,7 @@ en:
   reply: "Reply"
   status: "Status: %{status}"
   active: "Active"
+  create: "Create"
   inactive: "Inactive"
   find_nothing_html: <h2>Find nothing</h2>
   users:
@@ -27,6 +28,7 @@ en:
     doc_upload: "Uploaded document"
     post_comment: "Posted comment"
     update_user: "Updated user"
+    create_category: "Created category"
   error:
     invalid_ID: "ID is invalid"
     invalid_email: "Email is invalid"
@@ -38,6 +40,8 @@ en:
     invalid_doc: "Invalid document"
     post_comment: "Can't post comment"
     edit_admin: "Can't edit admin"
+    edit_draft_doc: "Can't edit draft document"
+    create_category: "Can't carete category"
   warning:
     logged_in: "You logged in!"
 
@@ -48,6 +52,9 @@ en:
         email: "Email"
         password: "Password"
         password_confirmation: "Password Confirmation"
+      category:
+        name: "Name"
+        parent_id: "Belongs category"
 
     errors:
       models:
@@ -63,3 +70,7 @@ en:
               invalid: " is invalid"
               blank: " is blank"
               too_short: " is too short"
+        category:
+          attributes:
+            name:
+              blank: " khong duoc de trong"

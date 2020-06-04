@@ -20,5 +20,6 @@ Rails.application.routes.draw do
     end
     resources :users, only: :show
     resources :downloads, only: :show
+    resources :categories, only: %i(new create)
   end
 end

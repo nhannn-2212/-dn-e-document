@@ -5,6 +5,7 @@
 
   <%= f.label :category_id %>
   <%= f.select :category_id, @categories, include_blank: true %>
+  <small><%= link_to t("create_category"), new_category_path %></small>
   <span class="doc">
     <%= f.file_field :doc, accept: Settings.doc_type_html %>
   </span>

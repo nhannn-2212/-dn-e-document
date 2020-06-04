@@ -18,6 +18,7 @@ vi:
   reply: "Tra loi"
   status: "Trang thai: %{status}"
   active: "Hoat dong"
+  create: "Tao"
   inactive: "Chan"
   find_nothing_html: <h2>Khong tim thay gi ca</h2>
   users:
@@ -27,6 +28,7 @@ vi:
     doc_upload: "Upload tai lieu thanh cong"
     post_comment: "Da dang binh luan thanh cong"
     update_user: "Da cap nhat nguoi dung"
+    create_category: "Da tao danh muc thanh cong"
   error:
     invalid_ID: "ID khong ton tai"
     invalid_email: "Email khong ton tai"
@@ -38,6 +40,8 @@ vi:
     invalid_doc: "Tai lieu khong ton tai"
     post_comment: "Khong the dang binh luan"
     edit_admin: "Khong duoc phep chinh sua admin"
+    edit_draft_doc: "Khong duoc phep chinh sua trang thai tai lieu nay"
+    create_category: "Khong the tao moi danh muc"
   warning:
     logged_in: "Ban da dang nhap!"
 
@@ -48,6 +52,9 @@ vi:
         email: "Email"
         password: "Mat khau"
         password_confirmation: "Xac nhan mat khau"
+      category:
+        name: "Ten danh muc"
+        parent_id: "Thuoc danh muc"
 
     errors:
       models:
@@ -63,3 +70,7 @@ vi:
               invalid: " khong hop le"
               blank: " khong duoc de trong"
               too_short: " qua ngan"
+        category:
+          attributes:
+            name:
+              blank: " khong duoc de trong"
