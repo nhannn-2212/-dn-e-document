@@ -12,6 +12,6 @@ module DnEDocument
     config.load_defaults 6.0
     config.time_zone = Settings.time_zone
     I18n.available_locales = [:vi, :en]
-    I18n.default_locale = :vi
+    I18n.default_locale = :en
   end
 end

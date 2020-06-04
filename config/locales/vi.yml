@@ -11,11 +11,17 @@ vi:
   search: "Tim kiem"
   documents_upload: "So tai lieu upload: "
   coin: "Coin"
+  comment: "Binh luan"
+  add_comment: "Binh luan"
+  comment_placeholder: "Viet binh luan"
+  reply_placeholder: "Tra loi binh luan"
+  reply: "Tra loi"
   users:
     email: "Email"
     pwd: "Mat khau"
   success:
     doc_upload: "Upload tai lieu thanh cong"
+    post_comment: "Da dang binh luan thanh cong"
   error:
     invalid_ID: "ID khong ton tai"
     invalid_email: "Email khong ton tai"
@@ -25,6 +31,7 @@ vi:
       doc_size: "Kich thuoc file phai nho hon %{size}MB"
     doc_upload: "Khong the upload tai lieu"
     invalid_doc: "Tai lieu khong ton tai"
+    post_comment: "Khong the dang binh luan"
   warning:
     logged_in: "Ban da dang nhap!"
 

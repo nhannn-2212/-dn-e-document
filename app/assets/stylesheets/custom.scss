@@ -140,3 +140,44 @@ aside {
     display: block;
   }
 }
+
+.comments {
+  display: gird;
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid $gray-lighter;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
+.content-wrapper {
+  border: 1px solid black;
+  padding: 10px;
+  /* Necessary until MS supports the latest version of the spec */
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: comment-area;
+}
+
+.reply_comment {
+  display: none
+}

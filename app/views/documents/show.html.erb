@@ -4,3 +4,15 @@
     <embed class="col-md-12" src="<%= polymorphic_url(@document.doc)%>" height="800" type="<%= Settings.pdf_type %>">
   </div>
 </div>
+<h3><%= t("comment") %></h3>
+<%= form_for [@document, Comment.new] do |f| %>
+  <%= f.text_area :content, placeholder: t("comment_placeholder") %><br/>
+  <%= f.submit t("add_comment") %>
+<% end %>
+<% if @document.comments.any? %>
+  <ul class="comments">
+    <%= render @document.comments.root_comment.by_created_at %>
+  </ul>
+<% end %>
+
+<%= javascript_pack_tag "comment" %>
