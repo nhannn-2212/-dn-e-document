@@ -1,0 +1,36 @@
+en:
+  home: "Home"
+  welcome_html: "<h3>Welcome to eDocument</h3>"
+  eDoc: "e-Document"
+  login: "Login"
+  login_html: <h3>Login</h3>
+  users:
+    email: "Email"
+    pwd: "Password"
+  error:
+    invalid_ID: "ID is invalid"
+    invalid_email: "Email is invalid"
+    invalid_email_password_combination: "Invalid email/password combination"
+
+  activerecord:
+    attributes:
+      user:
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password Confirmation"
+
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              invalid: " is invalid"
+              blank: " is blank"
+            name:
+              invalid: " is invalid"
+              blank: " is blank"
+            password:
+              invalid: " is invalid"
+              blank: " is blank"
+              too_short: " is too short"
