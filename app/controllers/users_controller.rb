@@ -6,7 +6,11 @@ class UsersController < ApplicationController
   def create; end
 
   def show
-    @documents = @user.documents.sort_by_name.paginate(page: params[:page], per_page: Settings.per_page)
+    if current_user != @user
+      @documents = @user.documents.approve.sort_by_name.paginate(page: params[:page], per_page: Settings.per_page)
+    else
+      @documents = @user.documents.sort_by_name.paginate(page: params[:page], per_page: Settings.per_page)
+    end
   end
 
   private
