@@ -1,0 +1,6 @@
+<% provide :name, @user.fullname %>
+<div class="row">
+  <p><%= t("users.fullname") + " #{@user.fullname}" %></p>
+  <p><%= t("users.email") + " #{@user.email}" %></p>
+  <p><%= t("users.coin") + " #{@user.coin}" %></p>
+</div>
