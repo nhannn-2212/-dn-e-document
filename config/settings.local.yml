@@ -8,3 +8,4 @@ doc_max_length: 255
 doc_size: 50
 doc_type: [application/pdf, application/msword, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.presentationml.presentation]
 doc_type_html: "application/pdf, application/msword, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.presentationml.presentation"
+pdf_type: application/pdf

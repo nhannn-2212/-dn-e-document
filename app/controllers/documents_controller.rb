@@ -11,14 +11,22 @@ class DocumentsController < ApplicationController
     redirect_to root_url
   end
 
-  private
+  def show
+    @document = Document.find_by id: params[:id]
+    return if @document
 
-  def doc_params
-    params.require(:document).permit :name, :doc, :category_id
+    flash[:danger] = t "error.invalid_doc"
+    redirect_to root_url
   end
+
+  private
 
   def build_doc
     @document = current_user.documents.build(doc_params)
     @document.doc.attach(params[:document][:doc])
+  end
+
+  def doc_params
+    params.require(:document).permit :name, :doc, :category_id
   end
 end

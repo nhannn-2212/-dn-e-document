@@ -4,7 +4,7 @@ class Document < ApplicationRecord
 
   # attr macro
   belongs_to :user
-  belongs_to :category
+  belongs_to :category, optional: true
   has_one_attached :doc
 
   # validates
@@ -21,4 +21,8 @@ class Document < ApplicationRecord
     message:
       I18n.t("error.invalid.doc_size", size: Settings.doc_size.megabytes)
   }
+
+  # scope
+  scope :by_created_at, ->{order created_at: :desc}
+  scope :by_title, ->{order name: :asc}
 end
