@@ -1,2 +1,6 @@
 vi:
   title: "E-Document"
+  home: "Trang chu"
+  welcome_html: <h3>Chao mung ban den voi eDocument</h3>
+  eDoc: "e-Document"
+  login: "Dang nhap"

@@ -1,2 +1,6 @@
 en:
   title: "E-Document"
+  home: "Home"
+  welcome_html: "<h3>Welcome to eDocument</h3>"
+  eDoc: "e-Document"
+  login: "Login"
