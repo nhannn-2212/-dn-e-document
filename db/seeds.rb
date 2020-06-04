@@ -18,3 +18,9 @@ User.create!(fullname: "Example User",
     role: 1,
     coin: 0)
 end
+
+user = User.first
+10.times do
+  name = Faker::Book.title
+  user.categories.create!(name: name)
+end

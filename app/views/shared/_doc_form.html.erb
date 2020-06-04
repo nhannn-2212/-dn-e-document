@@ -1,0 +1,12 @@
+<%= form_for @document do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+
+  <%= f.label :category_id %>
+  <%= f.select :category_id, @categories, include_blank: true %>
+  <span class="doc">
+    <%= f.file_field :doc, accept: Settings.doc_type_html %>
+  </span>
+  <%= f.submit t("upload"), class: "btn btn-primary" %>
+<% end %>

@@ -1,4 +1,13 @@
-<% provide :title, t("home") %>
-<div class="center jumbotron">
-  <%= t "welcome_html" %>
-</div>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-12">
+      <section class="doc_form">
+        <%= render "shared/doc_form" %>
+      </section>
+    </aside>
+<% else %>
+  <% provide :title, t("home") %>
+  <div class="center jumbotron">
+    <%= t "welcome_html" %>
+  </div>
+<% end %>

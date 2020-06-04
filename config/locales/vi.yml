@@ -5,6 +5,7 @@ vi:
   eDoc: "e-Document"
   login: "Dang nhap"
   login_html: <h3>Dang nhap</h3>
+  upload: "Tai len"
   users:
     email: "Email"
     pwd: "Mat khau"
@@ -12,6 +13,9 @@ vi:
     invalid_ID: "ID khong ton tai"
     invalid_email: "Email khong ton tai"
     invalid_email_password_combination: "Email va password khong trung khop"
+    invalid:
+      doc_format: "Dinh dang file khong phu hop"
+      doc_size: "Kich thuoc file phai nho hon %{size}MB"
   warning:
     logged_in: "Ban da dang nhap!"
 

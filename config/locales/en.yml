@@ -5,6 +5,7 @@ en:
   eDoc: "e-Document"
   login: "Login"
   login_html: <h3>Login</h3>
+  upload: "Upload"
   users:
     email: "Email"
     pwd: "Password"
@@ -12,8 +13,12 @@ en:
     invalid_ID: "ID is invalid"
     invalid_email: "Email is invalid"
     invalid_email_password_combination: "Invalid email/password combination"
+    invalid:
+      doc_format: "Invalid document format "
+      doc_size: "Should be less than %{size}MB"
   warning:
     logged_in: "You logged in!"
+
   activerecord:
     attributes:
       user:
