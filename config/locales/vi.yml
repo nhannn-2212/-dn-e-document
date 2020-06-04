@@ -4,3 +4,36 @@ vi:
   welcome_html: <h3>Chao mung ban den voi eDocument</h3>
   eDoc: "e-Document"
   login: "Dang nhap"
+  login_html: <h3>Dang nhap</h3>
+  users:
+    email: "Email"
+    pwd: "Mat khau"
+  error:
+    invalid_ID: "ID khong ton tai"
+    invalid_email: "Email khong ton tai"
+    invalid_email_password_combination: "Email va password khong trung khop"
+  warning:
+    logged_in: "Ban da dang nhap!"
+
+  activerecord:
+    attributes:
+      user:
+        name: "Ho ten"
+        email: "Email"
+        password: "Mat khau"
+        password_confirmation: "Xac nhan mat khau"
+
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              invalid: " khong hop le"
+              blank: " khong duoc de trong"
+            name:
+              invalid: " khong hop le"
+              blank: " khong duoc de trong"
+            password:
+              invalid: " khong hop le"
+              blank: " khong duoc de trong"
+              too_short: " qua ngan"
