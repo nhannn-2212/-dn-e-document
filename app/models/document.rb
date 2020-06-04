@@ -1,6 +1,6 @@
 class Document < ApplicationRecord
   # constant
-  enum status: {approved: 1, deleted: 2, wait: 3, ban: 4}
+  enum status: {approved: 1, wait: 2, draft: 3, ban: 4, deleted: 5}
 
   # attr macro
   belongs_to :user

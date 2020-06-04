@@ -17,12 +17,16 @@ en:
   reply_placeholder: "Reply comment"
   reply: "Reply"
   status: "Status: %{status}"
+  active: "Active"
+  inactive: "Inactive"
+  find_nothing_html: <h2>Find nothing</h2>
   users:
     email: "Email"
     pwd: "Password"
   success:
     doc_upload: "Uploaded document"
     post_comment: "Posted comment"
+    update_user: "Updated user"
   error:
     invalid_ID: "ID is invalid"
     invalid_email: "Email is invalid"
@@ -33,6 +37,7 @@ en:
     doc_upload: "Can't upload document"
     invalid_doc: "Invalid document"
     post_comment: "Can't post comment"
+    edit_admin: "Can't edit admin"
   warning:
     logged_in: "You logged in!"
 

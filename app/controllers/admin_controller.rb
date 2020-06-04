@@ -1,4 +1,7 @@
 class AdminController < ApplicationController
+  before_action :require_admin
+  include AdminHelper
+
   def require_admin
     return if current_user.admin?
 

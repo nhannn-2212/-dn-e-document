@@ -13,3 +13,7 @@ coin_my_file: 10
 coin: 15
 coin_upload: 10
 times_download_free: 3
+role_member: "member"
+status_ban: "ban"
+false_string: "false"
+times_upload_invalid: 5
