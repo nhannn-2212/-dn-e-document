@@ -27,4 +27,8 @@ class User < ApplicationRecord
   def minus_coin mcoin
     update_attribute :coin, coin - mcoin
   end
+
+  def add_coin mcoin
+    update_attribute :coin, coin + mcoin
+  end
 end

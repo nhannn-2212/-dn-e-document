@@ -19,6 +19,15 @@ class DocumentsController < ApplicationController
     redirect_to root_url
   end
 
+  def search
+    @documents = Document.search(params[:search]).sort_by_name.paginate page: params[:page], per_page: Settings.per_page
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   private
 
   def build_doc
