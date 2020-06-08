@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
     resources :documents, only: %i(create show)
     resources :users, only: :show
+    resources :downloads, only: :show
   end
 end

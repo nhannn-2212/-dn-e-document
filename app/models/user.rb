@@ -23,4 +23,8 @@ class User < ApplicationRecord
   # callback macro
   before_save ->{email.downcase!}
   has_secure_password
+
+  def minus_coin mcoin
+    update_attribute :coin, coin - mcoin
+  end
 end

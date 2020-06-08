@@ -6,6 +6,8 @@ vi:
   login: "Dang nhap"
   login_html: <h3>Dang nhap</h3>
   upload: "Tai len"
+  view: "Xem"
+  download: "Tai ve"
   users:
     email: "Email"
     pwd: "Mat khau"
