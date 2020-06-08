@@ -7,18 +7,23 @@ gem "active_storage_validations", "0.8.2"
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap-sass", "~>3.3.6"
+gem "bootstrap-will_paginate", "1.0.0"
 gem "config"
 gem "faker", "1.7.3"
 gem "figaro"
+gem "file_validators", "~> 2.0", ">= 2.0.2"
 gem "i18n-js"
 gem "jbuilder", "~> 2.7"
+gem "jquery-rails"
 gem "mysql2"
 gem "puma", "~> 4.1"
 gem "rails", "~> 6.0.3", ">= 6.0.3.1"
+gem "rails-i18n"
 gem "sass-rails", ">= 6"
 gem "turbolinks", "~> 5"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "webpacker", "~> 4.0"
+gem "will_paginate"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
