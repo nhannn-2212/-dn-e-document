@@ -8,6 +8,7 @@ en:
   upload: "Upload"
   view: "View"
   download: "Download"
+  search: "Search"
   users:
     email: "Email"
     pwd: "Password"

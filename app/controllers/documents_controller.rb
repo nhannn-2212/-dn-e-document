@@ -19,6 +19,18 @@ class DocumentsController < ApplicationController
     redirect_to root_url
   end
 
+  def search
+    if params[:search]
+      @docs = Document.left_outer_joins(:category).where("documents.name LIKE :search OR categories.name LIKE :search", search: "%#{params[:search]}%").paginate(page: params[:page], per_page: Settings.per_page)
+    else
+      @docs = Document.by_title.paginate(page: params[:page], per_page: Settings.per_page)
+    end
+    respond_to do |format|
+      format.js
+      format.html { redirect_to root_url }
+    end
+  end
+
   private
 
   def build_doc

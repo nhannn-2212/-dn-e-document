@@ -8,6 +8,7 @@ vi:
   upload: "Tai len"
   view: "Xem"
   download: "Tai ve"
+  search: "Tim kiem"
   users:
     email: "Email"
     pwd: "Mat khau"
