@@ -24,5 +24,8 @@ class Document < ApplicationRecord
 
   # scope
   scope :by_created_at, ->{order created_at: :desc}
-  scope :by_title, ->{order name: :asc}
+  scope :sort_by_name, ->{order name: :asc}
+  scope :search, ->(search){
+    left_outer_joins(:category).where("documents.name LIKE ?  OR categories.name LIKE ?", "%#{search}%", "%#{search}%") if search.present?
+  }
 end

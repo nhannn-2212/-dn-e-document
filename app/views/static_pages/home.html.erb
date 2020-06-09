@@ -1,10 +1,14 @@
 <% if logged_in? %>
   <div class="row">
-    <aside class="col-md-12">
+    <aside class="col-md-4">
       <section class="doc_form">
         <%= render "shared/doc_form" %>
       </section>
     </aside>
+    <div class="col-md-8" id="docs">
+      <%= t "list_doc" %>
+      <%= render "shared/list" %>
+    </div>
   </div>
 <% else %>
   <% provide :title, t("home") %>

@@ -1,4 +1,7 @@
 <li id="document-<%= document.id %>">
+  <% if document.doc.previewable? %>
+    <%= link_to(image_tag(document.doc.preview(resize: "200x200>")), document) %>
+  <% end %>
   <span class="name"><%= document.name %></span>
   <% if document.doc.content_type == Settings.pdf_type %>
     <span class="view"><%= link_to t("view"), document %></span>

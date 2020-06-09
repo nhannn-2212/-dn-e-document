@@ -9,12 +9,6 @@
     </section>
   </aside>
   <div class="col-md-8">
-    <% if @documents.any? %>
-      <%= t(".documents_html", count: @documents.size) %>
-      <ol class="documents">
-        <%= render @documents %>
-      </ol>
-      <%= will_paginate @documents %>
-    <% end %>
+    <%= render "shared/list", docs: @documents %>
   </div>
 </div>

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create; end
 
   def show
-    @documents = @user.documents.by_title.paginate(page: params[:page], per_page: Settings.per_page)
+    @documents = @user.documents.sort_by_name.paginate(page: params[:page], per_page: Settings.per_page)
   end
 
   private
