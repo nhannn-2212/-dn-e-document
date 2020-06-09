@@ -24,3 +24,9 @@ user = User.first
   name = Faker::Book.title
   user.categories.create!(name: name)
 end
+
+users = User.take(3)
+5.times do |n|
+  content = Faker::Lorem.sentence(5)
+  users.each{|user| user.comments.create!(content: content, document_id: Document.first.id)}
+end

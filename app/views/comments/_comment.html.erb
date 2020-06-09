@@ -1,0 +1,15 @@
+<li>
+  <%= comment.user.fullname %>
+  <div class="content-wrapper">
+    <%= comment.content %>
+  </div>
+  <small><%= time_ago_in_words(comment.created_at) %></small>
+  <a data-commentID=<%= comment.id %> class="reply"><i class="fa fa-reply"></i></a>
+  <%= form_for [comment, Comment.new], html: {id: "reply_comment" + comment.id.to_s,class: "reply_comment"} do |f| %>
+    <%= f.text_area :content, placeholder: t("reply_placeholder") %><br/>
+    <%= f.submit t("reply") %>
+  <% end %>
+  <ul>
+    <%= render comment.reply_comments %>
+  </ul>
+</li>

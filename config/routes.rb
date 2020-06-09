@@ -7,7 +7,12 @@ Rails.application.routes.draw do
     delete "/logout", to: "sessions#destroy", as: "logout"
     get "/search", to: "documents#search", as: "search"
 
-    resources :documents, only: %i(create show)
+    resources :documents, only: %i(create show) do
+        resources :comments, only: %i(new create)
+    end
+    resources :comments do
+      resources :comments, only: %i(new create)
+    end
     resources :users, only: :show
     resources :downloads, only: :show
   end

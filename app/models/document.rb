@@ -6,6 +6,7 @@ class Document < ApplicationRecord
   belongs_to :user
   belongs_to :category, optional: true
   has_one_attached :doc
+  has_many :comments
 
   # validates
   validates :name, presence: true, length: {

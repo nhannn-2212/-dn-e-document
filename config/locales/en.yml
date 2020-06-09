@@ -11,11 +11,17 @@ en:
   search: "Search"
   documents_upload: "Uploaded document: "
   coin: "Coin"
+  comment: "Comment"
+  add_comment: "Comment"
+  comment_placeholder: "Write comment"
+  reply_placeholder: "Reply comment"
+  reply: "Tra loi"
   users:
     email: "Email"
     pwd: "Password"
   success:
     doc_upload: "Uploaded document"
+    post_comment: "Posted comment"
   error:
     invalid_ID: "ID is invalid"
     invalid_email: "Email is invalid"
@@ -25,6 +31,7 @@ en:
       doc_size: "Should be less than %{size}MB"
     doc_upload: "Can't upload document"
     invalid_doc: "Invalid document"
+    post_comment: "Can't post comment"
   warning:
     logged_in: "You logged in!"
 
