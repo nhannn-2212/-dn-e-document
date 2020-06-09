@@ -9,9 +9,13 @@ vi:
   view: "Xem"
   download: "Tai ve"
   search: "Tim kiem"
+  documents_upload: "So tai lieu upload: "
+  coin: "Coin"
   users:
     email: "Email"
     pwd: "Mat khau"
+  success:
+    doc_upload: "Upload tai lieu thanh cong"
   error:
     invalid_ID: "ID khong ton tai"
     invalid_email: "Email khong ton tai"
@@ -19,6 +23,8 @@ vi:
     invalid:
       doc_format: "Dinh dang file khong phu hop"
       doc_size: "Kich thuoc file phai nho hon %{size}MB"
+    doc_upload: "Khong the upload tai lieu"
+    invalid_doc: "Tai lieu khong ton tai"
   warning:
     logged_in: "Ban da dang nhap!"
 

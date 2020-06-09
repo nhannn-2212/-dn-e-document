@@ -31,4 +31,12 @@ class User < ApplicationRecord
   def add_coin mcoin
     update_attribute :coin, coin + mcoin
   end
+
+  def create_history doc_id
+    history = histories.new(document_id: doc_id)
+    return if history.save
+
+    flash[:danger] = error.create_history
+    redirect_to root_url
+  end
 end
