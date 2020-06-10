@@ -1,6 +1,6 @@
 class Document < ApplicationRecord
   # constant
-  enum status: {approved: 1, wait: 2, draft: 3, ban: 4}
+  enum status: {approved: 1, deleted: 2, wait: 3, ban: 4}
 
   # attr macro
   belongs_to :user
@@ -24,7 +24,7 @@ class Document < ApplicationRecord
   }
 
   # scope
-  scope :by_created_at, ->{order created_at: :desc}
+  scope :sort_by_created_at, ->{order created_at: :desc}
   scope :sort_by_name, ->{order name: :asc}
   scope :search, ->(search){
     left_outer_joins(:category).where("documents.name LIKE ?  OR categories.name LIKE ?", "%#{search}%", "%#{search}%") if search.present?

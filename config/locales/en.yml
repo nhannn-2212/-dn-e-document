@@ -15,7 +15,8 @@ en:
   add_comment: "Comment"
   comment_placeholder: "Write comment"
   reply_placeholder: "Reply comment"
-  reply: "Tra loi"
+  reply: "Reply"
+  status: "Status: %{status}"
   users:
     email: "Email"
     pwd: "Password"

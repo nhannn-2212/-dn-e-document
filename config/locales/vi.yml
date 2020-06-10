@@ -16,6 +16,7 @@ vi:
   comment_placeholder: "Viet binh luan"
   reply_placeholder: "Tra loi binh luan"
   reply: "Tra loi"
+  status: "Trang thai: %{status}"
   users:
     email: "Email"
     pwd: "Mat khau"

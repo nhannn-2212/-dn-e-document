@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     delete "/logout", to: "sessions#destroy", as: "logout"
     get "/search", to: "documents#search", as: "search"
 
+    namespace :admin do
+      resources :documents, only: %i(index edit update)
+    end
+
     resources :documents, only: %i(create show) do
         resources :comments, only: %i(new create)
     end

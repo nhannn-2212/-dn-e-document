@@ -10,10 +10,11 @@
     <%= link_to t("download"), download_path(id: document.id), target: "_blank" %>
   </span>
   <span class="status">
-    <%= t "status", status: document.status %>
-  </span>
-  <span class="timestamp">
-    <%= link_to t("document.delete"), "#", method: :delete,
-      data: {confirm: t("document.cfm")} if current_user?(document.user) %>
+    <%= form_for [:admin,document], html: {class: "form-inline"}, remote: true do |f| %>
+      <%= f.select :status, Document.statuses.keys.to_a %>
+      <%= button_tag( :class => "button_green") do %>
+        <i class="fa fa-check-circle"></i>
+      <% end %>
+    <% end %>
   </span>
 </li>
