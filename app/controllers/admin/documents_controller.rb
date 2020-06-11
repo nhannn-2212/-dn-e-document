@@ -60,6 +60,6 @@ class Admin::DocumentsController < AdminController
   rescue ActiveRecord::RecordInvalid => e
     render json: {
       error: e.to_s
-    }, status: 404
+    }, status: :not_found
   end
 end

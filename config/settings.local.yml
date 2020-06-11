@@ -21,3 +21,4 @@ status_approved: "approved"
 false_string: "false"
 times_upload_invalid: 5
 upload_times_in_month: 10
+format_month_chart: "%b %Y"

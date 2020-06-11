@@ -232,10 +232,15 @@ aside {
     background-color: lightgray;
 }
 
-ul{
+ul, ol{
+  margin-top: 10px;
   list-style-type: none;
 }
 
 li{
   padding-bottom: 15px;
+}
+
+.navbar{
+  margin-bottom: 10px;
 }
