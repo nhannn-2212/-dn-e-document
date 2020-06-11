@@ -17,12 +17,16 @@ vi:
   reply_placeholder: "Tra loi binh luan"
   reply: "Tra loi"
   status: "Trang thai: %{status}"
+  active: "Hoat dong"
+  inactive: "Chan"
+  find_nothing_html: <h2>Khong tim thay gi ca</h2>
   users:
     email: "Email"
     pwd: "Mat khau"
   success:
     doc_upload: "Upload tai lieu thanh cong"
     post_comment: "Da dang binh luan thanh cong"
+    update_user: "Da cap nhat nguoi dung"
   error:
     invalid_ID: "ID khong ton tai"
     invalid_email: "Email khong ton tai"
@@ -33,6 +37,7 @@ vi:
     doc_upload: "Khong the upload tai lieu"
     invalid_doc: "Tai lieu khong ton tai"
     post_comment: "Khong the dang binh luan"
+    edit_admin: "Khong duoc phep chinh sua admin"
   warning:
     logged_in: "Ban da dang nhap!"
 

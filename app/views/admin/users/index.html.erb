@@ -1,0 +1,21 @@
+<% if @users.any? %>
+  <ol class="users" id="list_users">
+    <% @users.each do |f| %>
+      <li>
+        <%= f.fullname %>
+        | <%= f.email %>
+        | <%= f.coin %>
+        | <%= form_for [:admin, f], html: {class: "form-inline"}, remote: true do |f| %>
+            <%= f.select :role, User.roles.keys.to_a %>
+            <%= f.select :active, [[t("active"), true],[t("inactive"), false]] %>
+            <%= button_tag class: "button_green" do %>
+              <i class="fa fa-check-circle"></i>
+            <% end %>
+          <% end %>
+      </li>
+    <% end %>
+  </ol>
+  <%= will_paginate @users %>
+<% else %>
+  <%= t "find_nothing_html" %>
+<% end %>

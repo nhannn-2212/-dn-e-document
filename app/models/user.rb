@@ -24,6 +24,9 @@ class User < ApplicationRecord
   before_save ->{email.downcase!}
   has_secure_password
 
+  # scope
+  scope :sort_by_name,->{order :fullname}
+
   def minus_coin mcoin
     update_attribute :coin, coin - mcoin
   end
@@ -38,5 +41,9 @@ class User < ApplicationRecord
 
     flash[:danger] = error.create_history
     redirect_to root_url
+  end
+
+  def block_user
+    update_attribute :active, false
   end
 end

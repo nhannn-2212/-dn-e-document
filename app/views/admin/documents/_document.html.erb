@@ -11,7 +11,7 @@
   </span>
   <span class="status">
     <%= form_for [:admin,document], html: {class: "form-inline"}, remote: true do |f| %>
-      <%= f.select :status, Document.statuses.keys.to_a %>
+      <%= f.select :status, statuses %>
       <%= button_tag( :class => "button_green") do %>
         <i class="fa fa-check-circle"></i>
       <% end %>
