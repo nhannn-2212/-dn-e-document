@@ -17,6 +17,7 @@ coin_upload: 10
 times_download_free: 3
 role_member: "member"
 status_ban: "ban"
+status_approved: "approved"
 false_string: "false"
 times_upload_invalid: 5
 upload_times_in_month: 10

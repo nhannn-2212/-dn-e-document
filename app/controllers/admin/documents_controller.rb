@@ -1,20 +1,15 @@
 class Admin::DocumentsController < AdminController
-  before_action :load_doc, :check_draft_doc, only: :update
+  before_action :load_doc, :check_draft_doc, :check_change_status, :update_status_block, only: :update
   before_action :load_docs, only: :index
 
   def index; end
 
   def update
-    if @document.send("#{params[:document][:status]}!")
-      check_user_block
-      load_docs
-      respond_to do |format|
-        format.html
-        format.js
-      end
-    else
-      flash[:danger] = t "error.update_document"
-      redirect_to request.referer
+    check_approve
+    load_docs
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
@@ -43,6 +38,28 @@ class Admin::DocumentsController < AdminController
     ban_times = @document.user.documents.ban.size
     return if ban_times < Settings.times_upload_invalid || params[:document][:status] != Settings.status_ban
 
-    @document.user.block_user
+    @document.user.send_block_email if @document.user.block_user
+  end
+
+  def check_approve
+    @document.user.send_upload_email(@document) if params[:document][:status] == Settings.status_approved
+  end
+
+  def check_change_status
+    return if @document.status != params[:document][:status]
+
+    flash[:warning] = t "warning.nothing_update"
+    redirect_to request.referer
+  end
+
+  def update_status_block
+    ActiveRecord::Base.transaction do
+      @document.send("#{params[:document][:status]}!")
+      check_user_block
+    end
+  rescue ActiveRecord::RecordInvalid => e
+    render json: {
+      error: e.to_s
+    }, status: 404
   end
 end

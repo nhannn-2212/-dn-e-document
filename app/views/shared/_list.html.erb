@@ -1,7 +1,7 @@
 <% if @documents.any? %>
-  <ol class="documents" id="list_doc">
+  <ul class="documents" id="list_doc">
     <%= render @documents %>
-  </ol>
+  </ul>
   <%= will_paginate @documents,
     params: { controller: :static_pages, action: :home } %>
 <% end %>

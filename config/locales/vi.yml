@@ -31,6 +31,8 @@ vi:
     name: "Ten danh muc"
     created_by: "Duoc tao boi"
     parent_name: "Thuoc danh muc"
+  author: "Tac gia: %{name}"
+  download_times: "Luot tai: %{download}"
   edit: "Chinh sua"
   users:
     email: "Email"

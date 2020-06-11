@@ -42,7 +42,7 @@ textarea {
 }
 
 /* forms */
-input, textarea, select, .uneditable-input {
+input, button, textarea, select, .uneditable-input {
   border: 1px solid $border_color;
   width: 100%;
   margin-bottom: 15px;
@@ -203,4 +203,39 @@ aside {
     margin-left: 20px;
     font-weight: normal;
   }
+}
+
+.file-left {
+  float: left;
+  margin-right: 5px;
+  position: relative;
+}
+
+.file-info {
+  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0;
+  margin-bottom: 3px;
+}
+
+.file-right {
+    padding: 0 3px 0 85px;
+    overflow: hidden;
+    height: 97px;
+    line-height: 27px;
+    color: #767676;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: .2px;
+    word-break: break-word;
+    background-color: lightgray;
+}
+
+ul{
+  list-style-type: none;
+}
+
+li{
+  padding-bottom: 15px;
 }
