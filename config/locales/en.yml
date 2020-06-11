@@ -5,6 +5,7 @@ en:
   eDoc: "e-Document"
   login: "Login"
   login_html: <h3>Login</h3>
+  register_html: <h3>Register</h3>
   upload: "Upload"
   view: "View"
   download: "Download"
@@ -47,10 +48,12 @@ en:
     update_comment: "Updated comment"
     favorite: "Add successfully"
     unfavorite: "Delete successfully"
+    account_activated: "Account activated"
   error:
     invalid_ID: "ID is invalid"
     invalid_email: "Email is invalid"
     invalid_email_password_combination: "Invalid email/password combination"
+    invalid_activation_link: "Invalid activation link"
     invalid:
       doc_format: "Invalid document format "
       doc_size: "Should be less than %{size}MB"
@@ -63,7 +66,9 @@ en:
     update_comment: "Can't update comment"
   warning:
     logged_in: "You logged in!"
-
+  info:
+    user_inactive: "User inactive"
+    check_email_activation: "Please check your email to activate your account."
   activerecord:
     attributes:
       user:
@@ -104,3 +109,5 @@ en:
     monthly_report: "Monthly report"
     block_user: "Block user"
     upload_doc: "Uploaded document"
+  btn:
+    register: "Register"

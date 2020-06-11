@@ -13,7 +13,7 @@ class Category < ApplicationRecord
   }
 
   def send_create_cate_email
-    AdminMailer.create_cate(self).deliver_now
+    AdminMailer.create_cate(self).deliver_later
   end
 
   scope :sort_by_name, ->{order :name}

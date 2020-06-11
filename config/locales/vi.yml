@@ -5,6 +5,7 @@ vi:
   eDoc: "e-Document"
   login: "Dang nhap"
   login_html: <h3>Dang nhap</h3>
+  register_html: <h3>Dang ki</h3>
   upload: "Tai len"
   view: "Xem"
   download: "Tai ve"
@@ -63,7 +64,9 @@ vi:
     update_comment: "Khong the cap nhat binh luan"
   warning:
     logged_in: "Ban da dang nhap!"
-
+  info:
+    user_inactive: "Tai khoan chua duoc kich hoat"
+    check_email_activation: "Vui long kiem tra email de kich hoat tai khoan"
   activerecord:
     attributes:
       user:
@@ -104,3 +107,5 @@ vi:
     monthly_report: "Bao cao hang thang"
     block_user: "Chan user"
     upload_doc: "Tai lieu upload thanh cong"
+  btn:
+    register: "Dang ki"

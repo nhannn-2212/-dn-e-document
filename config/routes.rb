@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :comments do
       resources :comments, only: %i(new create delete)
     end
-    resources :users, only: :show do
+    resources :users, only: %i(show new create) do
       member do
         get :favorites
       end
@@ -28,5 +28,6 @@ Rails.application.routes.draw do
     resources :downloads, only: :show
     resources :categories, only: %i(new create)
     resources :favorites, only: %i(create destroy)
+    resources :account_activations, only: :edit
   end
 end
