@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :build_comment
+  before_action :build_comment, only: :create
+  before_action :load_comment, only: %i(edit destroy update)
 
   def new
     @comment = Comment.new
@@ -14,7 +15,39 @@ class CommentsController < ApplicationController
     redirect_to request.referer
   end
 
+  def destroy
+    if @comment.destroy
+      flash[:success] = t "success.delete_comment"
+    else
+      flash[:danger] = t "error.delete_comment"
+    end
+    redirect_to request.referer
+  end
+
+  def edit
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def update
+    if @comment.update_attributes com_params
+      flash[:success] = t "success.update_comment"
+    else
+      flash[:danger] = t "error.update_comment"
+    end
+    redirect_to @comment.document
+  end
+
   private
+
+  def load_comment
+    @comment = Comment.find_by id: params[:id]
+    return if @comment
+
+    flash[:danger] = t "error.invalid_comment"
+    redirect_to request.referer
+  end
 
   def build_comment
     @comment = current_user.comments.build com_params

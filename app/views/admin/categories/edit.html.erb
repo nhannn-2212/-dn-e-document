@@ -6,7 +6,7 @@
       <%= f.text_field :name, class: "form-control" %>
 
       <%= f.label :parent_id %>
-      <%= f.select :parent_id, @select_categories, selected: @category.parent_id, include_blank: true %>
+      <%= f.select :parent_id, select_categories, selected: @category.parent_id, include_blank: true %>
 
       <%= f.submit t("edit"), class: "btn btn-primary" %>
     <% end %>

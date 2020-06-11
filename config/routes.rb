@@ -14,10 +14,10 @@ Rails.application.routes.draw do
     end
 
     resources :documents, only: %i(create show) do
-        resources :comments, only: %i(new create)
+        resources :comments, only: %i(new create delete)
     end
     resources :comments do
-      resources :comments, only: %i(new create)
+      resources :comments, only: %i(new create delete)
     end
     resources :users, only: :show
     resources :downloads, only: :show

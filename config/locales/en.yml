@@ -31,6 +31,7 @@ en:
     name: "Name category"
     created_by: "Created by"
     parent_name: "Belongs to category"
+  edit: "Edit"
   users:
     email: "Email"
     pwd: "Password"
@@ -39,6 +40,7 @@ en:
     post_comment: "Posted comment"
     update_user: "Updated user"
     create_category: "Created category"
+    update_comment: "Updated comment"
   error:
     invalid_ID: "ID is invalid"
     invalid_email: "Email is invalid"
@@ -52,6 +54,7 @@ en:
     edit_admin: "Can't edit admin"
     edit_draft_doc: "Can't edit draft document"
     create_category: "Can't carete category"
+    update_comment: "Can't update comment"
   warning:
     logged_in: "You logged in!"
 

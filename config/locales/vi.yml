@@ -31,6 +31,7 @@ vi:
     name: "Ten danh muc"
     created_by: "Duoc tao boi"
     parent_name: "Thuoc danh muc"
+  edit: "Chinh sua"
   users:
     email: "Email"
     pwd: "Mat khau"
@@ -39,6 +40,7 @@ vi:
     post_comment: "Da dang binh luan thanh cong"
     update_user: "Da cap nhat nguoi dung"
     create_category: "Da tao danh muc thanh cong"
+    update_comment: "Cap nhat binh luan thanh cong"
   error:
     invalid_ID: "ID khong ton tai"
     invalid_email: "Email khong ton tai"
@@ -52,6 +54,7 @@ vi:
     edit_admin: "Khong duoc phep chinh sua admin"
     edit_draft_doc: "Khong duoc phep chinh sua trang thai tai lieu nay"
     create_category: "Khong the tao moi danh muc"
+    update_comment: "Khong the cap nhat binh luan"
   warning:
     logged_in: "Ban da dang nhap!"
 

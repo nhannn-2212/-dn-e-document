@@ -1,10 +1,18 @@
 <li>
   <%= comment.user.fullname %>
-  <div class="content-wrapper">
+  <div id=<%= "content_"+comment.id.to_s %> class="content-wrapper">
     <%= comment.content %>
   </div>
   <small><%= time_ago_in_words(comment.created_at) %></small>
   <a data-commentID=<%= comment.id %> class="reply"><i class="fa fa-reply"></i></a>
+  <% if current_user?(comment.user) %>
+    <%= link_to comment, method: :delete, data: {confirm: t("cfm")} do %>
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    <% end %>
+    <%= link_to edit_comment_path(comment), remote: true do %>
+      <i class="fas fa-edit"></i>
+    <% end %>
+  <% end %>
   <%= form_for [comment, Comment.new], html: {id: "reply_comment" + comment.id.to_s,class: "reply_comment"} do |f| %>
     <%= f.text_area :content, placeholder: t("reply_placeholder") %><br/>
     <%= f.submit t("reply") %>
