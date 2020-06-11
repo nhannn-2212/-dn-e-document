@@ -1,0 +1,7 @@
+<% if @documents.any? %>
+  <ul class="documents" id="list_doc">
+    <%= render @documents %>
+  </ul>
+  <%= will_paginate @documents,
+    params: { controller: :users, action: :favorites } %>
+<% end %>

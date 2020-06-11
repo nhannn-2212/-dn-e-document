@@ -22,3 +22,7 @@ false_string: "false"
 times_upload_invalid: 5
 upload_times_in_month: 10
 format_month_chart: "%b %Y"
+flash_success_type: "success"
+flash_notice_type: "notice"
+flash_error_type: "error"
+flash_alert_type: "alert"

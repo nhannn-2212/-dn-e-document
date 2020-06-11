@@ -45,6 +45,8 @@ vi:
     update_user: "Da cap nhat nguoi dung"
     create_category: "Da tao danh muc thanh cong"
     update_comment: "Cap nhat binh luan thanh cong"
+    favorite: "Da them vao danh sach yeu thich"
+    unfavorite: "Da xoa khoi danh sach yeu thich"
   error:
     invalid_ID: "ID khong ton tai"
     invalid_email: "Email khong ton tai"

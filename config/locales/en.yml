@@ -45,6 +45,8 @@ en:
     update_user: "Updated user"
     create_category: "Created category"
     update_comment: "Updated comment"
+    favorite: "Add successfully"
+    unfavorite: "Delete successfully"
   error:
     invalid_ID: "ID is invalid"
     invalid_email: "Email is invalid"

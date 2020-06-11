@@ -1,0 +1,2 @@
+toastr.success('<%= I18n.t "success.favorite" %>');
+$('<%=" #favorites_form"+@document.id.to_s %>').html('<%= j render "shared/unfavorite", doc_id: @document.id %>');

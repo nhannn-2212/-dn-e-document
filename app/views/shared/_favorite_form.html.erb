@@ -1,0 +1,7 @@
+<span id=<%= "favorites_form"+doc.id.to_s %>>
+  <% if current_user.fav_docs.include? doc %>
+    <%= render "shared/unfavorite", doc_id: doc.id %>
+  <% else %>
+    <%= render "shared/favorite", doc_id: doc.id %>
+  <% end %>
+</span>
