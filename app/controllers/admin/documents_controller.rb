@@ -1,5 +1,5 @@
 class Admin::DocumentsController < AdminController
-  before_action :load_doc, only: :update
+  before_action :load_doc, :check_draft_doc, only: :update
   before_action :load_docs, only: :index
 
   def index; end
@@ -26,6 +26,13 @@ class Admin::DocumentsController < AdminController
 
     flash[:danger] = t "error.invalid_doc"
     redirect_to root_url
+  end
+
+  def check_draft_doc
+    return unless @document.draft?
+
+    flash[:danger] = t "error.edit_draft_doc"
+    redirect_to request.referer
   end
 
   def load_docs
