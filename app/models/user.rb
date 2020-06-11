@@ -27,6 +27,7 @@ class User < ApplicationRecord
 
   # scope
   scope :sort_by_name, ->{order :fullname}
+  scope :find_in_month, ->{where "created_at BETWEEN ? AND ?", DateTime.now.beginning_of_month, DateTime.now.end_of_month}
 
   def minus_coin mcoin
     update_attribute :coin, coin - mcoin

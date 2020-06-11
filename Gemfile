@@ -28,6 +28,7 @@ gem "toastr-rails"
 gem "turbolinks", "~> 5"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "webpacker", "~> 4.0"
+gem "whenever", require: false
 gem "will_paginate"
 
 group :development, :test do

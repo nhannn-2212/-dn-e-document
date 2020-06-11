@@ -99,3 +99,8 @@ vi:
     download: Bieu do download
     upload: Bieu do upload
     no_data: "Khong co du lieu"
+  subject:
+    create_cate: "Thong bao: Danh muc moi vua duoc tao"
+    monthly_report: "Bao cao hang thang"
+    block_user: "Chan user"
+    upload_doc: "Tai lieu upload thanh cong"

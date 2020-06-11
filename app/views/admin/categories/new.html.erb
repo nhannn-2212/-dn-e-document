@@ -1,13 +1,13 @@
 <%= t "create_category_html" %>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for @category do |f| %>
+    <%= form_for [:admin, @category] do |f| %>
       <%= render "shared/error_messages", object: f.object %>
       <%= f.label :name %>
       <%= f.text_field :name, class: "form-control" %>
 
       <%= f.label :parent_id %>
-      <%= f.select :parent_id, @categories, include_blank: true %>
+      <%= f.select :parent_id, select_categories, include_blank: true %>
 
       <%= f.submit t("create"), class: "btn btn-primary" %>
     <% end %>
