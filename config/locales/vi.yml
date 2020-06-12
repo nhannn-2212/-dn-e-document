@@ -11,6 +11,10 @@ vi:
   search: "Tim kiem"
   documents_upload: "So tai lieu upload: "
   coin: "Coin"
+  delete: "Xoa"
+  edit: "Chinh sua"
+  cfm: "Ban co chac"
+  create_category: "Tao"
   comment: "Binh luan"
   add_comment: "Binh luan"
   comment_placeholder: "Viet binh luan"
@@ -19,8 +23,14 @@ vi:
   status: "Trang thai: %{status}"
   active: "Hoat dong"
   create: "Tao"
+  create_category: "Tao moi danh muc"
   inactive: "Chan"
+  cancel: "Cancel"
   find_nothing_html: <h2>Khong tim thay gi ca</h2>
+  category:
+    name: "Ten danh muc"
+    created_by: "Duoc tao boi"
+    parent_name: "Thuoc danh muc"
   users:
     email: "Email"
     pwd: "Mat khau"

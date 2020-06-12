@@ -5,7 +5,7 @@ class DocumentsController < ApplicationController
   def create
     if @document.save
       flash[:success] = t "success.doc_upload"
-      current_user.add_coin Settings.coin_upload if @times < 10
+      current_user.add_coin Settings.coin_upload if @times < Settings.upload_times_in_month
     else
       flash[:danger] = t "error.doc_upload"
     end
@@ -22,7 +22,6 @@ class DocumentsController < ApplicationController
 
   def search
     @documents = Document.search(params[:search]).approved.sort_by_name.paginate page: params[:page], per_page: Settings.per_page
-
     respond_to do |format|
       format.html
       format.js
@@ -33,11 +32,15 @@ class DocumentsController < ApplicationController
 
   def build_doc
     @document = current_user.documents.build(doc_params)
+    if params[:document][:category_attributes][:name].present?
+      @document.category_id = nil
+      @document.category.user = current_user
+    end
     @document.doc.attach(params[:document][:doc])
   end
 
   def doc_params
-    params.require(:document).permit :name, :doc, :category_id
+    params.require(:document).permit :name, :doc, :category_id, category_attributes: [:name, :parent_id]
   end
 
   def load_upload_times

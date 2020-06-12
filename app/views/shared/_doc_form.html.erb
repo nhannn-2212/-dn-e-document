@@ -3,11 +3,26 @@
   <%= f.label :name %>
   <%= f.text_field :name, class: "form-control" %>
 
-  <%= f.label :category_id %>
-  <%= f.select :category_id, @categories, include_blank: true %>
-  <small><%= link_to t("create_category"), new_category_path %></small>
+  <div id="category_select">
+    <%= f.label :category_id %>
+    <%= f.select :category_id, @select_categories, include_blank: true %>
+  </div>
+  <a id="create_category" class="reply"><%= t "create_category" %></a>
+  <br>
+  <div id="category_form" class="reply_comment">
+    <h4><%= t "create_category" %></h4>
+    <%= f.fields_for :category do |builder| %>
+      <%= builder.label :name %>
+      <%= builder.text_field :name, class: "form-control" %>
+
+      <%= builder.label :parent_id %>
+      <%= builder.select :parent_id, @select_categories, include_blank: true %>
+    <% end %>
+  </div>
   <span class="doc">
     <%= f.file_field :doc, accept: Settings.doc_type_html %>
   </span>
   <%= f.submit t("upload"), class: "btn btn-primary" %>
 <% end %>
+
+<%= javascript_pack_tag "doc_form" %>

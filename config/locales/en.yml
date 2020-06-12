@@ -11,6 +11,10 @@ en:
   search: "Search"
   documents_upload: "Uploaded document: "
   coin: "Coin"
+  delete: "Delete"
+  edit: "Edit"
+  cfm: "Are you sure?"
+  create_category: "Create"
   comment: "Comment"
   add_comment: "Comment"
   comment_placeholder: "Write comment"
@@ -19,8 +23,14 @@ en:
   status: "Status: %{status}"
   active: "Active"
   create: "Create"
+  create_category: "Create category"
   inactive: "Inactive"
+  cancel: "Cancel"
   find_nothing_html: <h2>Find nothing</h2>
+  category:
+    name: "Name category"
+    created_by: "Created by"
+    parent_name: "Belongs to category"
   users:
     email: "Email"
     pwd: "Password"

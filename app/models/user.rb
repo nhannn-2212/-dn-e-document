@@ -25,7 +25,7 @@ class User < ApplicationRecord
   has_secure_password
 
   # scope
-  scope :sort_by_name,->{order :fullname}
+  scope :sort_by_name, ->{order :fullname}
 
   def minus_coin mcoin
     update_attribute :coin, coin - mcoin
