@@ -1,0 +1,5 @@
+<% if @document.comments.any? %>
+  <ul class="comments">
+    <%= render @document.comments.root_comment.by_created_at %>
+  </ul>
+<% end %>

@@ -9,10 +9,8 @@
   <%= f.text_area :content, placeholder: t("comment_placeholder") %><br/>
   <%= f.submit t("add_comment") %>
 <% end %>
-<% if @document.comments.any? %>
-  <ul class="comments">
-    <%= render @document.comments.root_comment.by_created_at %>
-  </ul>
-<% end %>
+<div id = "list_comments">
+  <%= render "shared/comments" %>
+</div>
 
 <%= javascript_pack_tag "comment" %>

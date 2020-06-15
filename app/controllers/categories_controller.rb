@@ -1,7 +1,6 @@
 class CategoriesController < ApplicationController
   def new
     @category = Category.new
-    @select_categories = Category.sort_by_name.pluck(:name, :id)
   end
 
   def create

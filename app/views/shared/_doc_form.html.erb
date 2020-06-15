@@ -5,7 +5,7 @@
 
   <div id="category_select">
     <%= f.label :category_id %>
-    <%= f.select :category_id, @select_categories, include_blank: true %>
+    <%= f.select :category_id, select_categories, include_blank: true %>
   </div>
   <a id="create_category" class="reply"><%= t "create_category" %></a>
   <br>
@@ -16,7 +16,7 @@
       <%= builder.text_field :name, class: "form-control" %>
 
       <%= builder.label :parent_id %>
-      <%= builder.select :parent_id, @select_categories, include_blank: true %>
+      <%= builder.select :parent_id, select_categories, include_blank: true %>
     <% end %>
   </div>
   <span class="doc">

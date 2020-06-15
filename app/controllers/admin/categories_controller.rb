@@ -1,6 +1,6 @@
 class Admin::CategoriesController < AdminController
   before_action :require_admin
-  before_action :load_category, :load_select_category, only: %i(edit update)
+  before_action :load_category, only: %i(edit update)
 
   def index
     @categories = Category.sort_by_name.paginate(page: params[:page], per_page: Settings.per_page)
@@ -30,9 +30,5 @@ class Admin::CategoriesController < AdminController
 
   def category_params
     params.require(:category).permit :name, :parent_id
-  end
-
-  def load_select_category
-    @select_categories = Category.sort_by_name.pluck(:name, :id)
   end
 end
