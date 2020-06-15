@@ -1,5 +1,5 @@
 class Admin::UsersController < AdminController
-  before_action :load_user, :check_role_admin, only: :update
+  before_action :load_user, :check_role_admin, :check_ban, only: :update
   before_action :load_all_users, only: :index
 
   def index; end
@@ -37,5 +37,9 @@ class Admin::UsersController < AdminController
 
     flash[:danger] = t "error.edit_admin"
     redirect_to request.referer
+  end
+
+  def check_ban
+    @user.send_block_email if params[:user][:active] == Settings.false_string
   end
 end

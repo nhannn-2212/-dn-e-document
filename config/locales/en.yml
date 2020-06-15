@@ -31,6 +31,8 @@ en:
     name: "Name category"
     created_by: "Created by"
     parent_name: "Belongs to category"
+  author: "Author: %{name}"
+  download_times: "Download: %{download}"
   edit: "Edit"
   users:
     email: "Email"

@@ -1,20 +1,42 @@
 <li id="document-<%= document.id %>">
-  <% if document.doc.previewable? %>
-    <%= link_to(image_tag(document.doc.preview(resize: "200x200>")), document) %>
-  <% end %>
-  <span class="name"><%= document.name %></span>
-  <% if document.doc.content_type == Settings.pdf_type %>
-    <span class="view"><%= link_to t("view"), document %></span>
-  <% end %>
-  <span class="download">
-    <%= link_to t("download"), download_path(id: document.id), target: "_blank" %>
-  </span>
-  <span class="status">
-    <%= form_for [:admin,document], html: {class: "form-inline"}, remote: true do |f| %>
-      <%= f.select :status, statuses %>
-      <%= button_tag( :class => "button_green") do %>
-        <i class="fa fa-check-circle"></i>
-      <% end %>
-    <% end %>
-  </span>
+  <div class="row">
+    <div class="col-sm">
+      <div class="file-left">
+        <% if document.previewable? %>
+          <%= link_to(image_tag(document.doc.preview(resize: "100x100>")), document) %>
+        <% end %>
+      </div>
+      <div class="file-right">
+        <h2 class="name"><%= document.name %></h2>
+        <div class="file-info">
+          <% if document.content_type == Settings.pdf_type %>
+            <span class="view">
+              <%= link_to document do%>
+                <i class="fa fa-eye" aria-hidden="true"></i>
+              <% end %>
+            </span>
+          <% end %>
+          <span class="download">
+            <%= link_to download_path(id: document.id), target: "_blank" do %>
+              <i class="fa fa-download" aria-hidden="true"></i>
+            <% end %>
+          </span>
+          <span class="author">
+            <%= t "author", name: document.user_fullname %>
+          </span>
+          <span class="download">
+            <%= t "download_times", download: document.histories_size %>
+          </span>
+          <span class="status">
+            <%= form_for [:admin,document], html: {class: "form-inline"}, remote: true do |f| %>
+              <%= f.select :status, statuses %>
+              <%= button_tag( :class => "button_green") do %>
+                <i class="fa fa-check-circle"></i>
+              <% end %>
+            <% end %>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 </li>

@@ -7,7 +7,11 @@ class Document < ApplicationRecord
   belongs_to :category
   has_one_attached :doc
   has_many :comments
+  has_many :histories
   accepts_nested_attributes_for :category, reject_if: :reject_category
+  delegate :fullname, to: :user, prefix: true, allow_nil: true
+  delegate :size, to: :histories, prefix: true
+  delegate :content_type, :previewable?, :preview, to: :doc, prefix: false
 
   # validates
   validates :name, presence: true, length: {
@@ -26,7 +30,7 @@ class Document < ApplicationRecord
 
   # scope
   scope :sort_by_created_at, ->{order created_at: :desc}
-  scope :sort_by_name, ->{order name: :asc}
+  scope :sort_by_name, ->{order :name}
   scope :search, ->(search){
     left_outer_joins(:category).where("documents.name LIKE ?  OR categories.name LIKE ?", "%#{search}%", "%#{search}%") if search.present?
   }
