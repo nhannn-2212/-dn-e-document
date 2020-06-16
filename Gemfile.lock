@@ -81,6 +81,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
+    chartkick (3.3.1)
     childprocess (3.0.0)
     concurrent-ruby (1.1.6)
     config (2.2.1)
@@ -138,6 +139,8 @@ GEM
       mime-types (>= 1.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    groupdate (5.0.0)
+      activesupport (>= 5)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     i18n-js (3.7.0)
@@ -289,10 +292,12 @@ DEPENDENCIES
   bootstrap-will_paginate (= 1.0.0)
   byebug
   capybara (>= 2.15)
+  chartkick
   config
   faker (= 1.7.3)
   figaro
   file_validators (~> 2.0, >= 2.0.2)
+  groupdate
   i18n-js
   image_processing (= 1.9.3)
   jbuilder (~> 2.7)

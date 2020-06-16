@@ -27,6 +27,8 @@ en:
   inactive: "Inactive"
   cancel: "Cancel"
   find_nothing_html: <h2>Find nothing</h2>
+  stat_download: "Times download in %{month}: %{times}"
+  stat_upload: "Times upload in %{month}: %{times}"
   category:
     name: "Name category"
     created_by: "Created by"
@@ -89,3 +91,9 @@ en:
           attributes:
             name:
               blank: " khong duoc de trong"
+  chart:
+    times: "Times"
+    month: "Month"
+    download: "Chart Download"
+    upload: "Chart Upload"
+    no_data: "No data"

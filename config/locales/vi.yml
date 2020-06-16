@@ -27,6 +27,8 @@ vi:
   inactive: "Chan"
   cancel: "Cancel"
   find_nothing_html: <h2>Khong tim thay gi ca</h2>
+  stat_download: "So luot tai trong thang %{month}: %{times}"
+  stat_upload: "So tai lieu upload trong thang %{month}: %{times}"
   category:
     name: "Ten danh muc"
     created_by: "Duoc tao boi"
@@ -89,3 +91,9 @@ vi:
           attributes:
             name:
               blank: " khong duoc de trong"
+  chart:
+    times: Luot
+    month: Thang
+    download: Bieu do download
+    upload: Bieu do upload
+    no_data: "Khong co du lieu"

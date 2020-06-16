@@ -8,6 +8,8 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
+require("chartkick")
+require("chart.js")
 import "bootstrap"
 import "@fortawesome/fontawesome-free/css/all.css"
 import I18n from "i18n-js/index.js.erb"

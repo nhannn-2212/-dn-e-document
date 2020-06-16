@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :documents, only: %i(index edit update)
       resources :users, only: %i(index edit update)
       resources :categories, only: %i(index edit update)
+      resources :histories, only: :index
     end
 
     resources :documents, only: %i(create show) do

@@ -54,4 +54,12 @@ class User < ApplicationRecord
   def send_upload_email doc
     UserMailer.upload_doc(self, doc).deliver_now
   end
+
+  def send_block_email
+    UserMailer.block_user(self).deliver_now
+  end
+
+  def send_upload_email doc
+    UserMailer.upload_doc(self, doc).deliver_now
+  end
 end
