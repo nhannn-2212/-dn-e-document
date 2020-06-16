@@ -8,6 +8,8 @@ class Document < ApplicationRecord
   has_one_attached :doc
   has_many :comments
   has_many :histories
+  has_many :favorites
+  has_many :fav_users, through: :favorites, source: :user
   accepts_nested_attributes_for :category, reject_if: :reject_category
   delegate :fullname, to: :user, prefix: true, allow_nil: true
   delegate :size, to: :histories, prefix: true

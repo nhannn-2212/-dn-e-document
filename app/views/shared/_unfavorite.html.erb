@@ -1,0 +1,6 @@
+<%= form_for(current_user.favorites.find_by(document_id: doc_id),
+  html: {method: :delete, class: "form-inline"}, remote: true) do |f| %>
+  <%= button_tag( :class => "button_green") do %>
+    <i class="fa fa-star" style="color:yellow"></i>
+  <% end %>
+<% end %>

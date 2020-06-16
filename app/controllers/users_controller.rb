@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :load_user, only: :show
+  before_action :load_user, only: %i(show favorites)
 
   def new; end
 
@@ -10,6 +10,16 @@ class UsersController < ApplicationController
       @documents = @user.documents.approve.sort_by_name.paginate(page: params[:page], per_page: Settings.per_page)
     else
       @documents = @user.documents.sort_by_name.paginate(page: params[:page], per_page: Settings.per_page)
+    end
+  end
+
+  def favorites
+    if current_user != @user
+      flash[:danger] = t "error.not_permission"
+      redirect_to root_url
+    else
+      @documents = @user.fav_docs.paginate(page: params[:page], per_page: Settings.per_page)
+      render "show_favdocs"
     end
   end
 

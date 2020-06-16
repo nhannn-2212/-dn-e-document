@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :histories, dependent: :destroy
+  has_many :fav_docs, through: :favorites, source: :document
   has_many :categories
 
   # validates
@@ -55,11 +56,11 @@ class User < ApplicationRecord
     UserMailer.upload_doc(self, doc).deliver_now
   end
 
-  def send_block_email
-    UserMailer.block_user(self).deliver_now
+  def favorite doc
+    fav_docs << doc
   end
 
-  def send_upload_email doc
-    UserMailer.upload_doc(self, doc).deliver_now
+  def unfavorite doc
+    fav_docs.delete doc
   end
 end

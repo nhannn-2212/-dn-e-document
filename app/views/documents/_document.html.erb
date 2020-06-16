@@ -21,6 +21,7 @@
               <i class="fa fa-download" aria-hidden="true"></i>
             <% end %>
           </span>
+          <%= render "shared/favorite_form", doc: document %>
           <span class="author">
             <%= t "author", name: document.user_fullname %>
           </span>
