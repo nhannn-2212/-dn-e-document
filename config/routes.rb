@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :documents, only: %i(index edit update)
       resources :users, only: %i(index edit update)
-      resources :categories, only: %i(index edit update)
+      resources :categories, only: %i(index edit update new create)
       resources :histories, only: :index
     end
 

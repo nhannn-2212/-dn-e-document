@@ -99,3 +99,8 @@ en:
     download: "Chart Download"
     upload: "Chart Upload"
     no_data: "No data"
+  subject:
+    create_cate: "Notification: Create category"
+    monthly_report: "Monthly report"
+    block_user: "Block user"
+    upload_doc: "Uploaded document"

@@ -6,6 +6,7 @@ class DocumentsController < ApplicationController
     if @document.save
       flash[:success] = t "success.doc_upload"
       current_user.add_coin Settings.coin_upload if @times < Settings.upload_times_in_month
+      @document.category.send_create_cate_email if @flag_send_mail
     else
       flash[:danger] = t "error.doc_upload"
     end
@@ -32,9 +33,11 @@ class DocumentsController < ApplicationController
 
   def build_doc
     @document = current_user.documents.build(doc_params)
+    @flag_send_mail = false
     if params[:document][:category_attributes][:name].present?
       @document.category_id = nil
       @document.category.user = current_user
+      @flag_send_mail = true
     end
     @document.doc.attach(params[:document][:doc])
   end
