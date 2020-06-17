@@ -3,6 +3,9 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   enum role: {member: 1, admin: 2}
 
+    # attr macro
+  attr_accessor :activation_token
+
   # relation
   has_many :documents, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -23,6 +26,7 @@ class User < ApplicationRecord
 
   # callback macro
   before_save ->{email.downcase!}
+  before_create :create_activation_digest
   has_secure_password
 
   # scope
@@ -63,5 +67,41 @@ class User < ApplicationRecord
 
   def unfavorite doc
     fav_docs.delete doc
+  end
+
+  def authenticated? attribute, token
+    digest = send("#{attribute}_digest")
+    return unless digest
+
+    BCrypt::Password.new(digest).is_password?(token)
+  end
+
+  def create_activation_digest
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest(activation_token)
+  end
+
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
+  end
+
+  def activate
+    update_attributes active: true, coin: 0, activation_digest: nil
+  end
+
+  class << self
+    def digest string
+      cost =
+        if ActiveModel::SecurePassword.min_cost
+          BCrypt::Engine::MIN_COST
+        else
+          BCrypt::Engine.cost
+        end
+      BCrypt::Password.create(string, cost: cost)
+    end
+
+    def new_token
+      SecureRandom.urlsafe_base64
+    end
   end
 end
