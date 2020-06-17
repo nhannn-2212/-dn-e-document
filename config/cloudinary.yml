@@ -1,0 +1,8 @@
+---
+production:
+  cloud_name: droedn17p
+  api_key: '959376763962871'
+  api_secret: EO-cwA0y0irL8P4jEZU8SQvjEOc
+  secure: true
+  cdn_subdomain: true
+  static_file_support: true

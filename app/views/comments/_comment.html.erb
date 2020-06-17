@@ -10,7 +10,7 @@
       <i class="fa fa-trash" aria-hidden="true"></i>
     <% end %>
     <%= link_to edit_comment_path(comment), remote: true do %>
-      <i class="fas fa-edit"></i>
+      <i class="fa fa-edit"></i>
     <% end %>
   <% end %>
   <%= form_for [comment, Comment.new], html: {id: "reply_comment" + comment.id.to_s,class: "reply_comment"} do |f| %>

@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :find_user_by_email, only: :create
+  before_action :find_user_by_email, :check_activated, only: :create
 
   def new
     if logged_in?
@@ -33,5 +33,12 @@ class SessionsController < ApplicationController
 
     flash.now[:danger] = t "error.invalid_email"
     render :new
+  end
+
+  def check_activated
+    return if @user.active
+
+    flash[:warning] = t "warning.account_activated"
+    redirect_to root_url
   end
 end

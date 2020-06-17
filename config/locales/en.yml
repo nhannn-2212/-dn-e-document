@@ -49,6 +49,7 @@ en:
     favorite: "Add successfully"
     unfavorite: "Delete successfully"
     account_activated: "Account activated"
+    update_document: "Updated document"
   error:
     invalid_ID: "ID is invalid"
     invalid_email: "Email is invalid"
@@ -111,3 +112,8 @@ en:
     upload_doc: "Uploaded document"
   btn:
     register: "Register"
+  admin:
+    documents: "Manage documents"
+    users: "Manage users"
+    histories: "Stat"
+    categories: "Manage categories"

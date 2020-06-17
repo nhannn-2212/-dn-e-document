@@ -14,8 +14,8 @@ Rails.application.routes.draw do
       resources :histories, only: :index
     end
 
-    resources :documents, only: %i(create show) do
-        resources :comments, only: %i(new create delete)
+    resources :documents do
+      resources :comments, only: %i(new create delete)
     end
     resources :comments do
       resources :comments, only: %i(new create delete)
