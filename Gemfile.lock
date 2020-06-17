@@ -62,6 +62,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     autoprefixer-rails (9.7.6)
       execjs
+    aws_cf_signer (0.1.3)
     bcrypt (3.1.13)
     bindex (0.8.1)
     bootsnap (1.4.6)
@@ -84,12 +85,17 @@ GEM
     chartkick (3.3.1)
     childprocess (3.0.0)
     chronic (0.10.2)
+    cloudinary (1.15.0)
+      aws_cf_signer
+      rest-client
     concurrent-ruby (1.1.6)
     config (2.2.1)
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
     crass (1.0.6)
     deep_merge (1.2.1)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
     dry-configurable (0.11.5)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.4, >= 0.4.7)
@@ -142,6 +148,9 @@ GEM
       activesupport (>= 4.2.0)
     groupdate (5.0.0)
       activesupport (>= 5)
+    http-accept (1.7.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     i18n-js (3.7.0)
@@ -176,6 +185,7 @@ GEM
     minitest (5.14.1)
     msgpack (1.3.3)
     mysql2 (0.5.3)
+    netrc (0.11.0)
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
@@ -222,6 +232,11 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (1.7.0)
+    rest-client (2.1.0)
+      http-accept (>= 1.7.0, < 2.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     ruby-vips (2.0.17)
       ffi (~> 1.9)
     rubyzip (2.3.0)
@@ -264,6 +279,9 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.7)
     web-console (4.0.2)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -299,6 +317,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   chartkick
+  cloudinary
   config
   faker (= 1.7.3)
   figaro

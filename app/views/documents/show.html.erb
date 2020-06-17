@@ -4,13 +4,15 @@
     <embed class="col-md-12" src="<%= polymorphic_url(@document.doc)%>" height="800" type="<%= Settings.pdf_type %>">
   </div>
 </div>
-<h3><%= t("comment") %></h3>
-<%= form_for [@document, Comment.new] do |f| %>
-  <%= f.text_area :content, placeholder: t("comment_placeholder") %><br/>
-  <%= f.submit t("add_comment") %>
+<% if @document.approved? %>
+  <h3><%= t("comment") %></h3>
+  <%= form_for [@document, Comment.new] do |f| %>
+    <%= f.text_area :content, placeholder: t("comment_placeholder") %><br/>
+    <%= f.submit t("add_comment") %>
+  <% end %>
+  <div id = "list_comments">
+    <%= render "shared/comments" %>
+  </div>
 <% end %>
-<div id = "list_comments">
-  <%= render "shared/comments" %>
-</div>
 
 <%= javascript_pack_tag "comment" %>

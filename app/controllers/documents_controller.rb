@@ -1,6 +1,7 @@
 class DocumentsController < ApplicationController
-  before_action :logged_in?
+  before_action :logged_in_user
   before_action :build_doc, :load_upload_times, only: :create
+  before_action :load_doc, only: %i(show destroy)
 
   def create
     if @document.save
@@ -13,13 +14,7 @@ class DocumentsController < ApplicationController
     redirect_to root_url
   end
 
-  def show
-    @document = Document.find_by id: params[:id]
-    return if @document
-
-    flash[:danger] = t "error.invalid_doc"
-    redirect_to root_url
-  end
+  def show; end
 
   def search
     @documents = Document.search(params[:search]).approved.sort_by_name.paginate page: params[:page], per_page: Settings.per_page
@@ -29,7 +24,20 @@ class DocumentsController < ApplicationController
     end
   end
 
+  def destroy
+    @document.deleted!
+    redirect_to request.referer
+  end
+
   private
+
+  def load_doc
+    @document = Document.find_by id: params[:id]
+    return if @document&.approved? || (@document&.user == current_user)
+
+    flash[:danger] = t "error.invalid_doc"
+    redirect_to root_url
+  end
 
   def build_doc
     @document = current_user.documents.build(doc_params)

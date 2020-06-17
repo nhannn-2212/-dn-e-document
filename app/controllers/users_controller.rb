@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :load_user, only: %i(show favorites)
+  before_action :logged_in_user, except: %i(new create)
 
   def new
     @user = User.new
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
 
   def show
     if current_user != @user
-      @documents = @user.documents.approve.sort_by_name.paginate(page: params[:page], per_page: Settings.per_page)
+      @documents = @user.documents.approved.sort_by_name.paginate(page: params[:page], per_page: Settings.per_page)
     else
       @documents = @user.documents.sort_by_name.paginate(page: params[:page], per_page: Settings.per_page)
     end

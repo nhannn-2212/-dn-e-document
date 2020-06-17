@@ -48,6 +48,7 @@ vi:
     update_comment: "Cap nhat binh luan thanh cong"
     favorite: "Da them vao danh sach yeu thich"
     unfavorite: "Da xoa khoi danh sach yeu thich"
+    update_document: "Da cap nhat trang thai tai lieu"
   error:
     invalid_ID: "ID khong ton tai"
     invalid_email: "Email khong ton tai"
@@ -109,3 +110,8 @@ vi:
     upload_doc: "Tai lieu upload thanh cong"
   btn:
     register: "Dang ki"
+  admin:
+    documents: "Quan ly tai lieu"
+    users: "Quan ly nguoi dung"
+    histories: "Thong ke"
+    categories: "Quan ly danh muc"

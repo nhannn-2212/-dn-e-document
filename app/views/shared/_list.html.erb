@@ -2,6 +2,5 @@
   <ul class="documents" id="list_doc">
     <%= render @documents %>
   </ul>
-  <%= will_paginate @documents,
-    params: { controller: :static_pages, action: :home } %>
+    <%= will_paginate @documents %>
 <% end %>

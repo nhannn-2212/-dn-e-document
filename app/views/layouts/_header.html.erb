@@ -14,6 +14,12 @@
               <ul class="dropdown-menu">
                 <li><%= link_to t("profile"), current_user %></li>
                 <li><%= link_to t("favorite"), favorites_user_path(id: current_user.id) %></li>
+                <% if current_user.admin? %>
+                  <li><%= link_to t("admin.documents"), admin_documents_path %></li>
+                  <li><%= link_to t("admin.users"), admin_users_path %></li>
+                  <li><%= link_to t("admin.categories"), admin_categories_path %></li>
+                  <li><%= link_to t("admin.histories"), admin_histories_path %></li>
+                <% end %>
                 <li class="divider"></li>
                 <li>
                   <%= link_to t("logout"), logout_path, method: :delete %>

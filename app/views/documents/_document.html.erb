@@ -23,7 +23,9 @@
           </span>
           <%= render "shared/favorite_form", doc: document %>
           <span class="author">
-            <%= t "author", name: document.user_fullname %>
+            <%= link_to document.user do %>
+              <%= t "author", name: document.user_fullname %>
+            <% end %>
           </span>
           <span class="status">
             <%= t "status", status: document.status %>
@@ -33,8 +35,8 @@
           </span>
           <span class="timestamp">
             <% if current_user?(document.user) %>
-              <%= link_to "#", method: :delete, data: {confirm: t("document.cfm")} do %>
-                <i class="fas fa-trash"></i>
+              <%= link_to document, method: :delete, data: {confirm: t("cfm")} do %>
+                <i class="fa fa-trash"></i>
               <% end %>
             <% end %>
           </span>
