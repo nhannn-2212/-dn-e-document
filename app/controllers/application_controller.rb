@@ -1,9 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  check_authorization unless: :devise_controller?
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
   around_action :switch_locale
   include CategoriesHelper
+  include CanCan::ControllerAdditions
 
   def switch_locale &action
     locale = params[:locale] || I18n.default_locale
@@ -12,6 +14,16 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     {locale: I18n.locale}
+  end
+
+  rescue_from CanCan::AccessDenied do |e|
+    flash[:danger] = e.message
+    redirect_to root_url
+  end
+
+  rescue_from ActiveRecord::RecordNotFound do |e|
+    flash[:danger] = e.message
+    redirect_to root_url
   end
 
   private

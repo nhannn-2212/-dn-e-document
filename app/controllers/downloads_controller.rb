@@ -1,4 +1,5 @@
 class DownloadsController < ApplicationController
+  authorize_resource class: false
   before_action :load_document, :load_download_times
 
   def show
@@ -18,7 +19,7 @@ class DownloadsController < ApplicationController
     @document = Document.find_by id: params[:id]
     return if @document
 
-    flash.now[:danger] = t "invalid_file"
+    flash[:danger] = t "invalid_file"
     redirect_to root_url
   end
 

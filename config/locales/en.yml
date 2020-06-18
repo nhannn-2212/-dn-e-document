@@ -68,6 +68,7 @@ en:
     invalid:
       doc_format: "Invalid document format "
       doc_size: "Should be less than %{size}MB"
+    not_admin: "You don't have permission to access"
     doc_upload: "Can't upload document"
     invalid_doc: "Invalid document"
     post_comment: "Can't post comment"

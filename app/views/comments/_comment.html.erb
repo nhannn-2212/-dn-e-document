@@ -5,10 +5,12 @@
   </div>
   <small><%= time_ago_in_words(comment.created_at) %></small>
   <a data-commentID=<%= comment.id %> class="reply"><i class="fa fa-reply"></i></a>
-  <% if current_user?(comment.user) %>
+  <% if can? :delete, comment %>
     <%= link_to comment, method: :delete, data: {confirm: t("cfm")} do %>
       <i class="fa fa-trash" aria-hidden="true"></i>
     <% end %>
+  <% end %>
+  <% if can? :update, comment %>
     <%= link_to edit_comment_path(comment), remote: true do %>
       <i class="fas fa-edit"></i>
     <% end %>

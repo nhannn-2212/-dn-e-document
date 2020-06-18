@@ -68,6 +68,7 @@ vi:
       doc_size: "Kich thuoc file phai nho hon %{size}MB"
     doc_upload: "Khong the upload tai lieu"
     invalid_doc: "Tai lieu khong ton tai"
+    not_admin: "Ban khong co quyen truy cap vao trang nay"
     post_comment: "Khong the dang binh luan"
     edit_admin: "Khong duoc phep chinh sua admin"
     edit_draft_doc: "Khong duoc phep chinh sua trang thai tai lieu nay"

@@ -1,5 +1,5 @@
 class DocumentsController < ApplicationController
-  before_action :authenticate_user!
+  load_and_authorize_resource param_method: :doc_params
   before_action :build_doc, :load_upload_times, only: :create
 
   def create
@@ -13,13 +13,7 @@ class DocumentsController < ApplicationController
     redirect_to root_url
   end
 
-  def show
-    @document = Document.find_by id: params[:id]
-    return if @document
-
-    flash[:danger] = t "error.invalid_doc"
-    redirect_to root_url
-  end
+  def show; end
 
   def search
     @documents = Document.search(params[:search]).approved.sort_by_name.paginate page: params[:page], per_page: Settings.per_page
