@@ -11,7 +11,7 @@ class Category < ApplicationRecord
     uniqueness: true
 
   def send_create_cate_email
-    AdminMailer.create_cate(self).deliver_later
+    AdminMailer.create_cate(self).deliver_now
   end
 
   scope :sort_by_name, ->{order :name}

@@ -4,5 +4,11 @@ FactoryBot.define do
     fullname {Faker::Name.name}
     password {"foobar"}
     password_confirmation {"foobar"}
+    coin {0}
+    role {User.roles[:member]}
+
+    trait :admin do
+      role {User.roles[:admin]}
+    end
   end
 end
