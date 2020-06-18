@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :document do
     association :user
     association :category
-    name {Faker::Book.title}
+    name {Faker::Book.unique.title}
     doc {Rack::Test::UploadedFile.new("#{Rails.root}/tmp/sample.pdf", "application/pdf")}
     status {Document.statuses[:wait]}
 
