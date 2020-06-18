@@ -10,6 +10,7 @@ gem "bootstrap-sass", "~>3.3.6"
 gem "bootstrap-will_paginate", "1.0.0"
 gem "chartkick"
 gem "config"
+gem "devise"
 gem "faker", "1.7.3"
 gem "figaro"
 gem "file_validators", "~> 2.0", ">= 2.0.2"
@@ -35,11 +36,11 @@ group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "database_cleaner"
   gem "factory_bot_rails"
+  gem "rails-controller-testing"
   gem "rspec-collection_matchers"
   gem "rspec-rails"
   gem "rubocop-rails"
   gem "shoulda-matchers"
-  gem "rails-controller-testing"
 end
 
 group :development do

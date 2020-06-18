@@ -9,9 +9,4 @@ class UserMailer < ApplicationMailer
     @doc = doc
     mail to: user.email, subject: t("email.subject.upload_doc")
   end
-
-  def account_activation user
-    @user = user
-    mail to: user.email, subject: t("email.subject.account_activation")
-  end
 end

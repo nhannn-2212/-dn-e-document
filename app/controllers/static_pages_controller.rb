@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    return unless logged_in?
+    return unless user_signed_in?
 
     @document = current_user.documents.build
     @document.build_category

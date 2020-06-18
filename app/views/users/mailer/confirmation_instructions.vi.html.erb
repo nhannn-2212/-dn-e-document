@@ -1,0 +1,5 @@
+<p>Xin chao <%= @email %>!</p>
+
+<p>Vui long xac nhan dang ki tai khoan bang duong link ben duoi:</p>
+
+<p><%= link_to "Xac nhan tai khoan", confirmation_url(@resource, confirmation_token: @token) %></p>

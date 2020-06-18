@@ -1,9 +1,14 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable,
+         :confirmable
+
   # constant
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   enum role: {member: 1, admin: 2}
 
-    # attr macro
+  # attr macro
   attr_accessor :activation_token
 
   # relation
@@ -15,19 +20,12 @@ class User < ApplicationRecord
   has_many :categories
 
   # validates
-  validates :email, presence: true,
-    length: {maximum: Settings.email_max_length},
-    uniqueness: {case_sensitive: false},
-    format: {with: VALID_EMAIL_REGEX}
   validates :fullname, presence: true,
     length: {maximum: Settings.name_max_length}
-  validates :password, presence: true,
-    length: {minimum: Settings.pass_min_length}, allow_nil: true
 
   # callback macro
   before_save ->{email.downcase!}
   before_create :create_activation_digest
-  has_secure_password
 
   # scope
   scope :sort_by_name, ->{order :fullname}

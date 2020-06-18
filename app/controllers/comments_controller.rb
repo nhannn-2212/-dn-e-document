@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :build_comment, only: :create
   before_action :load_comment, only: %i(edit destroy update)
 
