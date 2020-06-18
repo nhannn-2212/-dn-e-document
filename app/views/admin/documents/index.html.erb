@@ -1,4 +1,21 @@
 <div class="col-md-8" id="docs">
-  <%= t "list_doc" %>
-  <%= render "shared/list" %>
+  <%= search_form_for @search, url: [:admin, :documents], method: :get, class: "form-inline" do |f| %>
+    <div class="form-group">
+        <%= f.label :name_cont, t("document.name") %>
+        <%= f.text_field :name_cont, class: "form-control" %><br>
+    </div>
+    <div class="form-group">
+        <%= f.label :category, t("category.name")  %>
+        <%= f.text_field :category_cont, class: "form-control" %><br>
+    </div>
+    <div class="form-group">
+      <%= f.submit t("search"), class: "btn btn-default" %>
+    </div>
+  <% end %>
+  <% if @documents.any? %>
+    <ul class="documents" id="list_doc">
+      <%= render @documents %>
+    </ul>
+    <%= will_paginate @documents %>
+  <% end %>
 </div>

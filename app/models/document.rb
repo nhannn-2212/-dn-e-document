@@ -14,6 +14,7 @@ class Document < ApplicationRecord
   delegate :fullname, to: :user, prefix: true, allow_nil: true
   delegate :size, to: :histories, prefix: true
   delegate :content_type, :previewable?, :preview, to: :doc, prefix: false
+  ransack_alias :category, :category_name
 
   # validates
   validates :name, presence: true, length: {
@@ -33,7 +34,7 @@ class Document < ApplicationRecord
   # scope
   scope :sort_by_created_at, ->{order created_at: :desc}
   scope :sort_by_name, ->{order :name}
-  scope :search, ->(search){
+  scope :search_by_name_or_cate, ->(search){
     left_outer_joins(:category).where("documents.name LIKE ?  OR categories.name LIKE ?", "%#{search}%", "%#{search}%") if search.present?
   }
   scope :find_in_month, ->{where "created_at BETWEEN ? AND ?", DateTime.now.beginning_of_month, DateTime.now.end_of_month}

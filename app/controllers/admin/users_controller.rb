@@ -1,9 +1,11 @@
 class Admin::UsersController < AdminController
   load_and_authorize_resource param_method: :user_params
   before_action :check_role_admin, :check_ban, only: :update
-  before_action :load_all_users, only: :index
 
-  def index; end
+  def index
+    @search = User.search(params[:q])
+    @users = @search.result.sort_by_name.paginate page: params[:page], per_page: Settings.per_page
+  end
 
   def update
     if @user.update_attributes user_params
@@ -19,10 +21,6 @@ class Admin::UsersController < AdminController
   def user_params
     params.require(:user)
           .permit :role, :active
-  end
-
-  def load_all_users
-    @users = User.sort_by_name.paginate page: params[:page], per_page: Settings.per_page
   end
 
   def check_role_admin
