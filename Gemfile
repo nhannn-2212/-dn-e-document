@@ -33,6 +33,12 @@ gem "will_paginate"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "database_cleaner"
+  gem "factory_bot_rails"
+  gem "rspec-collection_matchers"
+  gem "rspec-rails"
+  gem "rubocop-rails"
+  gem "shoulda-matchers"
 end
 
 group :development do
@@ -45,5 +51,6 @@ end
 group :test do
   gem "capybara", ">= 2.15"
   gem "selenium-webdriver"
+  gem "simplecov"
   gem "webdrivers"
 end
