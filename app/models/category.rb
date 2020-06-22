@@ -6,11 +6,9 @@ class Category < ApplicationRecord
   has_many :documents
   delegate :fullname, to: :user, prefix: true, allow_nil: true
 
-  validates :name, presence: true, length: {
-    minimum: Settings.category_min_length,
-    maximum: Settings.category_max_length,
+  validates :name, presence: true,
+    length: {minimum: Settings.category_min_length, maximum: Settings.category_max_length},
     uniqueness: true
-  }
 
   def send_create_cate_email
     AdminMailer.create_cate(self).deliver_later
