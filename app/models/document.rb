@@ -40,6 +40,6 @@ class Document < ApplicationRecord
   scope :find_in_year, ->{where "created_at BETWEEN ? AND ?", DateTime.now.beginning_of_year, DateTime.now.end_of_year}
 
   def reject_category attr
-    attr["name"].blank?
+    attr[:name].blank?
   end
 end
