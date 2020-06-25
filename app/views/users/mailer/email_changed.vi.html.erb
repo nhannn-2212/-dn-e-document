@@ -1,0 +1,7 @@
+<p>Xin chao <%= @email %>!</p>
+
+<% if @resource.try(:unconfirmed_email?) %>
+  <p>Email cua ban se bi thay doi sang <%= @resource.unconfirmed_email %>.</p>
+<% else %>
+  <p>Email cua ban da bi thay doi sang <%= @resource.email %>.</p>
+<% end %>

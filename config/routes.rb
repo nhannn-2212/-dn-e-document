@@ -2,9 +2,12 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /vi|en/ do
     root "static_pages#home"
 
-    get "/login", to: "sessions#new", as: "login"
-    post "/login", to: "sessions#create"
-    delete "/logout", to: "sessions#destroy", as: "logout"
+    devise_scope :user do
+      get "/login", to: "devise/sessions#new", as: "login"
+      post "/login", to: "devise/sessions#create"
+      get "/register", to: "devise/registrations#new", as: "register"
+      delete "/logout", to: "devise/sessions#destroy", as: "logout"
+    end
     get "/search", to: "documents#search", as: "search"
 
     namespace :admin do
@@ -20,14 +23,15 @@ Rails.application.routes.draw do
     resources :comments do
       resources :comments, only: %i(new create delete)
     end
-    resources :users, only: %i(show new create) do
-      member do
-        get :favorites
-      end
-    end
     resources :downloads, only: :show
     resources :categories, only: %i(new create)
     resources :favorites, only: %i(create destroy)
     resources :account_activations, only: :edit
+    devise_for :users
+    resources :users, only: %i(show) do
+      member do
+        get :favorites
+      end
+    end
   end
 end

@@ -1,5 +1,5 @@
 class DocumentsController < ApplicationController
-  before_action :logged_in?
+  before_action :authenticate_user!
   before_action :build_doc, :load_upload_times, only: :create
 
   def create
