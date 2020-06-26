@@ -2,7 +2,8 @@ class Admin::CategoriesController < AdminController
   load_and_authorize_resource param_method: :category_params
 
   def index
-    @categories = Category.sort_by_name.paginate(page: params[:page], per_page: Settings.per_page)
+    @search = Category.search(params[:q])
+    @categories = @search.result.sort_by_name.paginate(page: params[:page], per_page: Settings.per_page)
   end
 
   def edit; end

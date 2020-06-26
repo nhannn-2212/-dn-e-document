@@ -49,8 +49,11 @@ vi:
   download_times: "Luot tai: %{download}"
   edit: "Chinh sua"
   users:
+    name_or_email: "Ten hoac email "
+    name: "Ten nguoi dung"
     email: "Email"
     pwd: "Mat khau"
+    coin_gteq: "Coin >="
   success:
     doc_upload: "Upload tai lieu thanh cong"
     post_comment: "Da dang binh luan thanh cong"

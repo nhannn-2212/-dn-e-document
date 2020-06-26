@@ -1,4 +1,17 @@
 <% if @users.any? %>
+  <%= search_form_for @search, url: [:admin, :users], method: :get, class: "form-inline" do |f| %>
+    <div class="form-group">
+        <%= f.label :fullname_or_email_cont, t("users.fullname_or_email") %>
+        <%= f.text_field :fullname_or_email_cont, class: "form-control" %><br>
+    </div>
+    <div class="form-group">
+        <%= f.label :coin, t("users.coin_gteq")  %>
+        <%= f.text_field :coin_gteq, class: "form-control" %><br>
+    </div>
+    <div class="form-group">
+      <%= f.submit t("search"), class: "btn btn-default" %>
+    </div>
+  <% end %>
   <ol class="users" id="list_users">
     <% @users.each do |f| %>
       <li>

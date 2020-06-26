@@ -42,15 +42,18 @@ en:
   stat_download: "Times download in %{month}: %{times}"
   stat_upload: "Times upload in %{month}: %{times}"
   category:
-    name: "Name category"
+    name: "Category name"
     created_by: "Created by"
     parent_name: "Belongs to category"
   author: "Author: %{name}"
   download_times: "Download: %{download}"
   edit: "Edit"
   users:
+    fullname_or_email: "Fullname or Email"
+    name: "Fullname"
     email: "Email"
     pwd: "Password"
+    coin_gteq: "Coin >="
   success:
     doc_upload: "Uploaded document"
     post_comment: "Posted comment"

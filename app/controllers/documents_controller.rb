@@ -16,7 +16,7 @@ class DocumentsController < ApplicationController
   def show; end
 
   def search
-    @documents = Document.search(params[:search]).approved.sort_by_name.paginate page: params[:page], per_page: Settings.per_page
+    @documents = Document.search_by_name_or_cate(params[:search]).approved.sort_by_name.paginate page: params[:page], per_page: Settings.per_page
     respond_to do |format|
       format.html
       format.js

@@ -1,5 +1,18 @@
 <% t "list_categories_html" %>
 <% if @categories.any? %>
+  <%= search_form_for @search, url: [:admin, :categories], method: :get, class: "form-inline" do |f| %>
+    <div class="form-group">
+        <%= f.label :name_cont, t("category.name") %>
+        <%= f.text_field :name_cont, class: "form-control" %><br>
+    </div>
+    <div class="form-group">
+        <%= f.label :user_cont, t("category.created_by") %>
+        <%= f.text_field :user_cont, class: "form-control" %><br>
+    </div>
+    <div class="form-group">
+      <%= f.submit t("search"), class: "btn btn-default" %>
+    </div>
+  <% end %>
   <table class="table">
     <tr>
       <th><%= t "category.name" %></th>

@@ -3,7 +3,10 @@ class Admin::DocumentsController < AdminController
   before_action :check_draft_doc, :check_change_status, :update_status_block, only: :update
   before_action :load_docs, only: :index
 
-  def index; end
+  def index
+    @search = Document.search(params[:q])
+    @documents = @search.result.not_draft.sort_by_created_at.paginate page: params[:page], per_page: Settings.per_page
+  end
 
   def update
     check_approve
