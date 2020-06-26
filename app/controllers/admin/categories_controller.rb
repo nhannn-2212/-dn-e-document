@@ -1,6 +1,5 @@
 class Admin::CategoriesController < AdminController
-  before_action :require_admin
-  before_action :load_category, only: %i(edit update)
+  load_and_authorize_resource param_method: :category_params
 
   def index
     @categories = Category.sort_by_name.paginate(page: params[:page], per_page: Settings.per_page)
@@ -34,14 +33,6 @@ class Admin::CategoriesController < AdminController
   end
 
   private
-
-  def load_category
-    @category = Category.find_by id: params[:id]
-    return if @category
-
-    flash[:danger] = t "error.invalid_category"
-    redirect_to request.referer
-  end
 
   def category_params
     params.require(:category).permit :name, :parent_id

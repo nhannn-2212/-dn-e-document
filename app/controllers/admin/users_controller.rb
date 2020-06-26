@@ -1,5 +1,6 @@
 class Admin::UsersController < AdminController
-  before_action :load_user, :check_role_admin, :check_ban, only: :update
+  load_and_authorize_resource param_method: :user_params
+  before_action :check_role_admin, :check_ban, only: :update
   before_action :load_all_users, only: :index
 
   def index; end
@@ -18,14 +19,6 @@ class Admin::UsersController < AdminController
   def user_params
     params.require(:user)
           .permit :role, :active
-  end
-
-  def load_user
-    @user = User.find_by id: params[:id]
-    return if @user
-
-    flash[:danger] = t "error.invalid_ID"
-    redirect_to redirect_to request.referer
   end
 
   def load_all_users

@@ -32,7 +32,7 @@
             <%= t "download_times", download: document.histories_size %>
           </span>
           <span class="timestamp">
-            <% if current_user?(document.user) %>
+            <% if can? :delete, document %>
               <%= link_to "#", method: :delete, data: {confirm: t("document.cfm")} do %>
                 <i class="fas fa-trash"></i>
               <% end %>

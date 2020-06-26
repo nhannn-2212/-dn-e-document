@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationController
-  before_action :load_favorite, only: :destroy
+  load_and_authorize_resource
 
   def create
     @document = Document.find_by id: params[:document_id]
@@ -16,7 +16,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @document = @fav.document
+    @document = @favorite.document
     if @document
       current_user.unfavorite @document
       respond_to do |format|
@@ -27,15 +27,5 @@ class FavoritesController < ApplicationController
       flash[:danger] = t "error.invalid_doc"
       redirect_to root_url
     end
-  end
-
-  private
-
-  def load_favorite
-    @fav = Favorite.find_by id: params[:id]
-    return if @fav
-
-    flash[:danger] = t "error.invalid_fav"
-    redirect_to root_url
   end
 end

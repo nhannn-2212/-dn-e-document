@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
+  load_and_authorize_resource param_method: :com_params
   before_action :build_comment, only: :create
-  before_action :load_comment, only: %i(edit destroy update)
 
   def new
     @comment = Comment.new
@@ -41,14 +40,6 @@ class CommentsController < ApplicationController
   end
 
   private
-
-  def load_comment
-    @comment = Comment.find_by id: params[:id]
-    return if @comment
-
-    flash[:danger] = t "error.invalid_comment"
-    redirect_to request.referer
-  end
 
   def build_comment
     @comment = current_user.comments.build com_params
